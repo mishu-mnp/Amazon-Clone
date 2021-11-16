@@ -1,26 +1,25 @@
 import React from 'react'
-import images from './components/images'
+// import images from './components/images'
 import './Product.css'
 
-const Product = () => {
+const Product = ({ title, image, rating, price }) => {
     return (
         <div className='product'>
             <div className="product__info">
-                <p claassName='product__description'>Rich Dad Poor Dad</p>
+                <p claassName='product__description'>{title}</p>
                 <p className='product__price'>
                     <small>$</small>
-                    <strong>16</strong>
+                    <strong>{price}</strong>
                 </p>
                 <div className="product__rating">
-                    <p>⭐</p>
-                    <p>⭐</p>
-                    <p>⭐</p>
-                    <p>⭐</p>
+                    {Array(rating).fill().map((_, i) => (
+                        <p>⭐</p>
+                    ))}
                 </div>
             </div>
 
 
-            <img className='product__img' src={images[3]} alt="richDadPoorDad" />
+            <img className='product__img' src={image} alt="bookImg" />
 
             <button>Add to cart</button>
         </div>
