@@ -7,8 +7,7 @@ import html from '../img/html.jpg';
 import css from '../img/css.jpg';
 import javascript from '../img/javascript.jfif';
 import reactjs from '../img/reactjs.jpg';
-
-// const images = [logo, logo2, amazonPrime, rdpd, python, html, css, javascript, react]
+import checkout from '../img/checkout.jpg';
 
 const images = {
     logo: logo,
@@ -20,5 +19,6 @@ const images = {
     css: css,
     javascript: javascript,
     reactjs: reactjs,
+    checkout: checkout,
 }
 export default images

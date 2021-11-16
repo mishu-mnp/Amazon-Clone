@@ -2,7 +2,7 @@ import React from 'react'
 // import images from './components/images'
 import './Product.css'
 
-const Product = ({ title, image, rating, price }) => {
+const Product = ({ id, title, image, rating, price }) => {
     return (
         <div className='product'>
             <div className="product__info">
