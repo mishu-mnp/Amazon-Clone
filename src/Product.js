@@ -14,7 +14,7 @@ const Product = ({ id, title, image, rating, price }) => {
             type: 'ADD_TO_BASKET',
             item: {
                 id: id,
-                titile: title,
+                title: title,
                 image: image,
                 price: price,
                 rating: rating,

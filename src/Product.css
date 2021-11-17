@@ -23,6 +23,10 @@
   margin-top: 5px;
 }
 
+.product__price > strong {
+  margin-left: 2px;
+}
+
 .product__info {
   height: 100px;
   margin-bottom: 10px;
@@ -40,6 +44,6 @@
   background: #f0c14b;
   border: 1px solid #846a29;
   padding: 5px;
-  color: black;
+  color: #111;
   cursor: pointer;
 }
