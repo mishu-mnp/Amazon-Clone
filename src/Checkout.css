@@ -2,7 +2,7 @@
   display: flex;
   padding: 10px;
   background-color: white;
-  height: max-content;
+  height: 50%;
 }
 
 .checkout__ad {
