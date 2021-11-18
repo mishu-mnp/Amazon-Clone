@@ -6,7 +6,7 @@ import Subtotal from './Subtotal';
 import CheckoutProduct from './CheckoutProduct';
 
 function Checkout() {
-    const [{ basket, dispatch }] = useStateValue();
+    const [{ basket, user, dispatch }] = useStateValue();
 
     return (
         <div className='checkout'>
@@ -16,6 +16,7 @@ function Checkout() {
                 <img className='checkout__ad' src={images.checkout} alt="checkoutOffer" />
 
                 <div>
+                    <h3 className='checkout__user'>Hello, {user ? user.email : 'Guest'}</h3>
                     <h2 className="checkout__title">Your Shopping Basket</h2>
 
                     {basket.map(item => (
@@ -27,11 +28,6 @@ function Checkout() {
                             rating={item.rating}
                         />
                     ))}
-                    {/* Basket Item */}
-                    {/* Basket Item */}
-                    {/* Basket Item */}
-                    {/* Basket Item */}
-                    {/* Basket Item */}
                 </div>
             </div>
 
