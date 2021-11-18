@@ -8,10 +8,8 @@ import css from '../img/css.jpg';
 import javascript from '../img/javascript.jfif';
 import reactjs from '../img/reactjs.jpg';
 import checkout from '../img/checkout.jpg';
-import amazonlogo from '../img/amazonlogo.png'
-import amazonlogo2 from '../img/amazonlogo2.png'
-import amazonlogo3 from '../img/amazonlogo3.png'
-import amazonlogo4 from '../img/amazonlogo4.png'
+import amazonlogo from '../img/amazon.png'
+
 
 const images = {
     logo: logo,
@@ -25,8 +23,5 @@ const images = {
     reactjs: reactjs,
     checkout: checkout,
     amazonlogo: amazonlogo,
-    amazonlogo2: amazonlogo2,
-    amazonlogo3: amazonlogo3,
-    amazonlogo4: amazonlogo4,
 }
 export default images
