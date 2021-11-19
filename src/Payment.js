@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css';
 import { useStateValue } from './StateProvider';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './Reducer';
+import axios from './axios';
 
 function Payment() {
 
@@ -15,10 +16,24 @@ function Payment() {
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState('');
     const [succeeded, setSucceeded] = useState(false);
+    const [clientSecret, setClientSecret] = useState(true);
 
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        // generate the special stripe secret which allows us to charge a customer
+        const getClientSecret = async () => {
+            const response = await axios({
+                method: 'POST',
+                // Stripe expects the total in a currencies subunits that's why here for dollar is 100
+                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+            });
+            setClientSecret(response.data.clientSecret)
+        }
+        getClientSecret();
+    }, [basket])
 
     const handleChange = event => {
         // handle change
@@ -31,7 +46,18 @@ function Payment() {
         event.preventDefault();
         setProcessing(true);
 
-        // const payload = await 
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement)
+            }
+        }).then(({ paymentIntent }) => {
+            // paymentIntent = payment confirmation
+            setSucceeded(true);
+            setError(null);
+            setProcessing(false);
+
+            navigate('/orders', { replace: true });
+        })
     }
 
     return (
