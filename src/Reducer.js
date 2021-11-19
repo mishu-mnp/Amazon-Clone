@@ -3,6 +3,11 @@ export const initialState = {
     user: null
 };
 
+// Selector
+// Calculate total amount for items
+export const getBasketTotal = (basket) =>
+    basket?.reduce((amount, item) => item.price + amount, 0);
+
 const reducer = (state, action) => {
     console.log('Action', action)
     switch (action.type) {

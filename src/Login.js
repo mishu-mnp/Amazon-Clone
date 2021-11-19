@@ -53,7 +53,7 @@ function Login() {
                     <h5>Password</h5>
                     <input type="password" value={password} id='password' onChange={(e) => setPassword(e.target.value)} />
 
-                    <button className='login__signInButton' onClick={signIn} >Sign In</button>
+                    <button className='login__signInButton' onClick={signIn} type='submit'>Sign In</button>
                 </form>
 
                 <p>
